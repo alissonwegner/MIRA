@@ -25,6 +25,7 @@
       <a href="index.html#inicio">Início</a>
       <a href="index.html#como">Como funciona</a>
       <a href="inventario.html" aria-current="page">Inventário</a>
+      <a href="mitre.html">MITRE ATT&amp;CK</a>
       <a href="index.html#privacidade">Privacidade</a>
     </nav>
   </div>
@@ -72,6 +73,75 @@
               <p class="nota aviso-carregamento" hidden></p>
             </div>
           </li>
+
+          <li class="categoria-item">
+            <button type="button" class="categoria" data-categoria="switch" aria-expanded="false">
+              Switch
+            </button>
+            <div class="categoria-corpo" hidden data-corpo="switch">
+
+              <label class="campo">
+                Fabricante
+                <select class="campo-fabricante">
+                  <option value="">Carregando…</option>
+                </select>
+              </label>
+
+              <div class="previa-fabricante" hidden>
+                <img class="icone-fabricante" alt="" hidden>
+                <span class="icone-generica" hidden></span>
+                <span class="nome-fabricante"></span>
+              </div>
+
+              <label class="campo">
+                Modelo
+                <select class="campo-modelo" disabled>
+                  <option value="">Selecione o fabricante</option>
+                </select>
+              </label>
+
+              <label class="campo">
+                Versão
+                <select class="campo-versao" disabled>
+                  <option value="">Selecione o modelo</option>
+                </select>
+              </label>
+
+              <button type="button" class="botao botao-adicionar" disabled>Adicionar à lista</button>
+              <p class="nota aviso-carregamento" hidden></p>
+            </div>
+          </li>
+
+          <li class="categoria-item">
+            <button type="button" class="categoria" data-categoria="maquina" aria-expanded="false">
+              Máquina
+            </button>
+            <div class="categoria-corpo" hidden data-corpo="maquina">
+
+              <label class="campo">
+                Fabricante
+                <select class="campo-fabricante">
+                  <option value="">Carregando…</option>
+                </select>
+              </label>
+
+              <div class="previa-fabricante" hidden>
+                <img class="icone-fabricante" alt="" hidden>
+                <span class="icone-generica" hidden></span>
+                <span class="nome-fabricante"></span>
+              </div>
+
+              <label class="campo">
+                Versão
+                <select class="campo-versao" disabled>
+                  <option value="">Selecione o fabricante</option>
+                </select>
+              </label>
+
+              <button type="button" class="botao botao-adicionar" disabled>Adicionar à lista</button>
+              <p class="nota aviso-carregamento" hidden></p>
+            </div>
+          </li>
         </ul>
 
         <div class="lista-adicionados">
@@ -82,7 +152,9 @@
       </aside>
 
       <section class="painel-desenho" aria-label="Desenho da infraestrutura">
-        <p>Desenho da infraestrutura — em construção</p>
+        <p class="desenho-vazio">Desenho da infraestrutura — adicione equipamentos no menu ao lado</p>
+        <svg class="linhas-desenho"></svg>
+        <div class="linhas-container"></div>
       </section>
     </div>
   </div>

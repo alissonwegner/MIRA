@@ -1,0 +1,12 @@
+{
+  "equipamento": "switch",
+  "fabricantes": [
+    { "nome": "N/D", "icone": null, "modelos": [] },
+    { "nome": "Cisco", "icone": "cisco", "modelos": [] },
+    { "nome": "Aruba (HPE)", "icone": null, "modelos": [] },
+    { "nome": "Juniper", "icone": "junipernetworks", "modelos": [] },
+    { "nome": "Huawei", "icone": "huawei", "modelos": [] },
+    { "nome": "Mikrotik", "icone": "mikrotik", "modelos": [] },
+    { "nome": "TP-Link", "icone": "tplink", "modelos": [] }
+  ]
+}

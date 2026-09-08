@@ -2,10 +2,10 @@
   "equipamento": "firewall",
   "fabricantes": [
     { "nome": "N/D", "icone": null, "versoes": [] },
-    { "nome": "Sophos", "icone": null, "versoes": [] },
-    { "nome": "Palo Alto", "icone": "paloaltonetworks", "versoes": [] },
-    { "nome": "Fortinet", "icone": "fortinet", "versoes": [] },
-    { "nome": "Check Point", "icone": null, "versoes": [] },
-    { "nome": "pfSense", "icone": "pfsense", "versoes": [] }
+    { "nome": "Sophos", "icone": null, "versoes": ["21.0", "20.0", "19.5", "19.0", "18.5", "18.0", "17.5", "17.0", "16.5", "16.0", "15.0"] },
+    { "nome": "Palo Alto", "icone": "paloaltonetworks", "versoes": ["PAN-OS 11.2", "PAN-OS 11.1", "PAN-OS 11.0", "PAN-OS 10.2", "PAN-OS 10.1", "PAN-OS 10.0", "PAN-OS 9.1", "PAN-OS 9.0", "PAN-OS 8.1", "PAN-OS 8.0", "PAN-OS 7.1", "PAN-OS 7.0", "PAN-OS 6.1", "PAN-OS 6.0", "PAN-OS 5.0", "PAN-OS 4.1", "PAN-OS 4.0", "PAN-OS 3.0"] },
+    { "nome": "Fortinet", "icone": "fortinet", "versoes": ["7.6", "7.4", "7.2", "7.0", "6.4", "6.2", "6.0", "5.6", "5.4", "5.2", "5.0", "4.3", "4.2", "4.1", "4.0", "3.0"] },
+    { "nome": "Check Point", "icone": null, "versoes": ["R82", "R81.20", "R81.10", "R81", "R80.40", "R80.30", "R80.20", "R80.10", "R80", "R77", "R76", "R75", "R71", "R70", "R65"] },
+    { "nome": "pfSense", "icone": "pfsense", "versoes": ["2.7", "2.6", "2.5", "2.4", "2.3", "2.2", "2.1", "2.0", "1.2", "1.0"] }
   ]
 }

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O Desenho Que Se Monta Sozinho — Manual MIRA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #eef3f7;
+    --card: #ffffff;
+    --ink: #16283a;
+    --ink-soft: #52697c;
+    --accent: #c97418;
+    --accent-strong: #a8590c;
+    --accent-soft: #f6e2c2;
+    --grid: #c9d6e0;
+    --good: #2f7d5e;
+    --good-soft: #d9efe4;
+    --line: #7e97ab;
+    --shadow: rgba(22, 40, 58, .10);
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --sans: "Nunito", system-ui, -apple-system, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0c1a28;
+      --card: #132433;
+      --ink: #e4edf4;
+      --ink-soft: #93aabd;
+      --accent: #e7a24a;
+      --accent-strong: #f2b869;
+      --accent-soft: #3a2c18;
+      --grid: #1e3244;
+      --good: #5cbf95;
+      --good-soft: #163227;
+      --line: #4d6b83;
+      --shadow: rgba(0, 0, 0, .45);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; }
+
+  body {
+    background:
+      repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 32px),
+      var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .pagina {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 5vw, 3.5rem) clamp(1.1rem, 4vw, 1.75rem) 5rem;
+  }
+
+  /* ---------- cabeçalho ---------- */
+
+  .selo {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: var(--mono);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: .35rem .8rem;
+  }
+  .selo svg { width: 14px; height: 14px; }
+
+  h1 {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    margin: .9rem 0 .5rem;
+    text-wrap: balance;
+  }
+
+  .subtitulo {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 34rem;
+    margin: 0 0 2.2rem;
+  }
+
+  h2 {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin: 0 0 .3rem;
+    display: flex;
+    align-items: baseline;
+    gap: .55rem;
+  }
+  h2 .n {
+    color: var(--accent-strong);
+  }
+
+  .intro-secao {
+    color: var(--ink-soft);
+    font-size: .95rem;
+    margin: 0 0 1.1rem;
+    max-width: 36rem;
+  }
+
+  section { margin: 3rem 0; }
+  section:first-of-type { margin-top: 0; }
+
+  code, .badge-fn {
+    font-family: var(--mono);
+    font-size: .85em;
+  }
+
+  .badge-fn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    border-radius: 5px;
+    padding: .12rem .4rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ---------- figura hero ---------- */
+
+  figure { margin: 0; }
+  .painel-figura {
+    background: var(--card);
+    border: 1px solid var(--grid);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px -12px var(--shadow);
+    padding: 1.1rem 1rem .6rem;
+  }
+  .painel-figura svg { width: 100%; height: auto; display: block; }
+  figcaption {
+    font-size: .82rem;
+    color: var(--ink-soft);
+    text-align: center;
+    padding: .7rem .5rem 0;
+  }
+
+  .caixa-topo { fill: var(--card); stroke: var(--line); stroke-width: 1.25; }
+  .linha-topo { stroke: var(--line); stroke-width: 1.5; }
+  .rotulo-topo { fill: var(--accent-strong); }
+  .nome-topo { fill: var(--ink); }
+  .rotulo-no { font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .04em; }
+  .nome-no { font-family: var(--sans); font-size: 11.5px; font-weight: 700; }
+
+  /* ---------- passo a passo (espinha) ---------- */
+
+  .espinha { position: relative; padding-left: 2.6rem; }
+  .espinha::before {
+    content: "";
+    position: absolute;
+    left: 1.05rem;
+    top: .3rem;
+    bottom: .3rem;
+    width: 2px;
+    background: var(--grid);
+  }
+  .passo {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--grid);
+    border-radius: 8px;
+    padding: .9rem 1.1rem;
+    margin-bottom: .85rem;
+    box-shadow: 0 4px 14px -10px var(--shadow);
+  }
+  .passo:last-child { margin-bottom: 0; }
+  .passo::before {
+    content: attr(data-n);
+    position: absolute;
+    left: -2.6rem;
+    top: .55rem;
+    width: 1.55rem;
+    height: 1.55rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .passo h3 { margin: 0 0 .25rem; font-size: 1rem; font-weight: 800; }
+  .passo p { margin: 0; color: var(--ink-soft); font-size: .92rem; }
+
+  /* ---------- prédio de camadas ---------- */
+
+  .predio {
+    background: var(--card);
+    border: 1px solid var(--grid);
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 8px 24px -12px var(--shadow);
+  }
+  .andar {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: .9rem .6rem;
+    border-radius: 8px;
+  }
+  .andar + .seta-desce {
+    display: flex;
+    justify-content: center;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 1rem;
+    padding: .1rem 0;
+  }
+  .andar-nome {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: .82rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    text-align: right;
+    color: var(--accent-strong);
+  }
+  .andar-desc { font-size: .9rem; color: var(--ink-soft); }
+  .andar-desc strong { color: var(--ink); }
+  .andar:nth-child(1) { background: color-mix(in srgb, var(--accent) 9%, transparent); }
+
+  /* ---------- cartões lado a lado ---------- */
+
+  .grade-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: .8rem;
+  }
+  .cartao {
+    background: var(--card);
+    border: 1px solid var(--grid);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 4px 14px -10px var(--shadow);
+  }
+  .cartao h3 {
+    margin: 0 0 .35rem;
+    font-size: .95rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .cartao p { margin: 0; font-size: .88rem; color: var(--ink-soft); }
+  .emoji-icone { font-size: 1.15rem; line-height: 1; }
+
+  /* ---------- funções ---------- */
+
+  .lista-funcoes { display: flex; flex-direction: column; gap: .7rem; }
+  .funcao {
+    background: var(--card);
+    border: 1px solid var(--grid);
+    border-radius: 8px;
+    padding: .85rem 1.1rem;
+    box-shadow: 0 4px 14px -10px var(--shadow);
+    display: grid;
+    grid-template-columns: 9.5rem 1fr;
+    gap: .3rem 1rem;
+    align-items: start;
+  }
+  .funcao .apelido {
+    font-weight: 800;
+    font-size: .92rem;
+  }
+  .funcao p { margin: .2rem 0 0; font-size: .88rem; color: var(--ink-soft); grid-column: 1 / -1; }
+
+  @media (max-width: 32rem) {
+    .funcao { grid-template-columns: 1fr; }
+    .andar { grid-template-columns: 1fr; }
+    .andar-nome { text-align: left; }
+  }
+
+  /* ---------- caixa de destaque ---------- */
+
+  .destaque {
+    background: var(--good-soft);
+    border: 1px solid color-mix(in srgb, var(--good) 35%, var(--grid));
+    border-radius: 8px;
+    padding: .9rem 1.1rem;
+    font-size: .92rem;
+    color: var(--ink);
+  }
+  .destaque strong { color: var(--good); }
+
+  /* ---------- glossário ---------- */
+
+  .glossario { display: flex; flex-direction: column; gap: .6rem; margin: 0; }
+  .termo {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: .8rem;
+    font-size: .9rem;
+    padding-bottom: .6rem;
+    border-bottom: 1px dashed var(--grid);
+  }
+  .termo:last-child { border-bottom: none; }
+  .termo dt { font-family: var(--mono); font-weight: 700; color: var(--accent-strong); }
+  .termo dd { margin: 0; color: var(--ink-soft); }
+  @media (max-width: 28rem) { .termo { grid-template-columns: 1fr; } }
+
+  .rodape {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--grid);
+    font-size: .82rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .passo, .cartao, .funcao { transition: transform .15s ease; }
+    .passo:hover, .cartao:hover, .funcao:hover { transform: translateY(-1px); }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <span class="selo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="8.5" y="14" width="7" height="7" rx="1"/><line x1="6.5" y1="10" x2="6.5" y2="17"/><line x1="17.5" y1="10" x2="12" y2="14"/><line x1="6.5" y1="17" x2="8.5" y2="17"/></svg>
+    manual do mira
+  </span>
+
+  <h1>O desenho que se&nbsp;monta sozinho</h1>
+  <p class="subtitulo">
+    No Inventário do MIRA, você não desenha nada. Você só diz o que tem — e o
+    desenho da rede aparece sozinho, do jeito certo. Este manual explica,
+    devagar e com desenhos, como essa mágica acontece por dentro.
+  </p>
+
+  <figure class="painel-figura">
+    <svg viewBox="0 0 640 320" role="img" aria-label="Exemplo do desenho automático: um Firewall no topo, ligado a dois Switches, cada um ligado aos dois Computadores de baixo, formando três fileiras.">
+      <line x1="320" y1="84" x2="170" y2="136" class="linha-topo"/>
+      <line x1="320" y1="84" x2="470" y2="136" class="linha-topo"/>
+      <line x1="170" y1="184" x2="170" y2="236" class="linha-topo"/>
+      <line x1="170" y1="184" x2="470" y2="236" class="linha-topo"/>
+      <line x1="470" y1="184" x2="170" y2="236" class="linha-topo"/>
+      <line x1="470" y1="184" x2="470" y2="236" class="linha-topo"/>
+
+      <rect x="250" y="36" width="140" height="48" rx="6" class="caixa-topo"/>
+      <text x="320" y="55" text-anchor="middle" class="rotulo-no rotulo-topo">FIREWALL</text>
+      <text x="320" y="71" text-anchor="middle" class="nome-no nome-topo">Fortinet 7.4</text>
+
+      <rect x="100" y="136" width="140" height="48" rx="6" class="caixa-topo"/>
+      <text x="170" y="155" text-anchor="middle" class="rotulo-no rotulo-topo">SWITCH</text>
+      <text x="170" y="171" text-anchor="middle" class="nome-no nome-topo">Cisco A</text>
+
+      <rect x="400" y="136" width="140" height="48" rx="6" class="caixa-topo"/>
+      <text x="470" y="155" text-anchor="middle" class="rotulo-no rotulo-topo">SWITCH</text>
+      <text x="470" y="171" text-anchor="middle" class="nome-no nome-topo">Cisco B</text>
+
+      <rect x="100" y="236" width="140" height="48" rx="6" class="caixa-topo"/>
+      <text x="170" y="255" text-anchor="middle" class="rotulo-no rotulo-topo">MÁQUINA</text>
+      <text x="170" y="271" text-anchor="middle" class="nome-no nome-topo">Ana · Win 11</text>
+
+      <rect x="400" y="236" width="140" height="48" rx="6" class="caixa-topo"/>
+      <text x="470" y="255" text-anchor="middle" class="rotulo-no rotulo-topo">MÁQUINA</text>
+      <text x="470" y="271" text-anchor="middle" class="nome-no nome-topo">Bruno · Ubuntu</text>
+    </svg>
+    <figcaption>
+      Assim que você adiciona 1 Firewall, 2 Switches e 2 Máquinas, o desenho
+      organiza tudo em 3 fileiras e liga cada caixinha a todas as caixinhas
+      da fileira de cima — sozinho.
+    </figcaption>
+  </figure>
+
+  <section>
+    <h2><span class="n">§1</span> Passo a passo: como uma peça nova aparece</h2>
+    <p class="intro-secao">
+      Cada vez que você adiciona um equipamento, quatro cliques acontecem —
+      e o desenho reage sozinho ao final do último.
+    </p>
+    <div class="espinha">
+      <div class="passo" data-n="1">
+        <h3>Você escolhe a caixinha</h3>
+        <p>Firewall, Switch ou Máquina — a categoria do equipamento.</p>
+      </div>
+      <div class="passo" data-n="2">
+        <h3>Você escolhe a marca</h3>
+        <p>Tipo Fortinet, Cisco, Windows ou Linux Ubuntu.</p>
+      </div>
+      <div class="passo" data-n="3">
+        <h3>Você escolhe a versão</h3>
+        <p>Tipo "PAN-OS 11.2" ou "Windows 11 Pro".</p>
+      </div>
+      <div class="passo" data-n="4">
+        <h3>Você aperta "Adicionar à lista"</h3>
+        <p>
+          O botão chama a função <span class="badge-fn">salvaInventario()</span>,
+          que guarda tudo na memória do navegador, e depois
+          <span class="badge-fn">renderizaLista()</span> e
+          <span class="badge-fn">renderizaDesenho()</span>, que redesenham a
+          lista e o desenho — os dois de uma vez.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">§2</span> Como o desenho decide o andar de cada coisa</h2>
+    <p class="intro-secao">
+      Pensa no desenho como um prédio de 3 andares. Toda vez que uma peça é
+      adicionada, ela já nasce sabendo em qual andar mora — isso é uma lista
+      fixa no código chamada <span class="badge-fn">ORDEM_CAMADAS</span>.
+    </p>
+    <div class="predio">
+      <div class="andar">
+        <div class="andar-nome">Firewall</div>
+        <div class="andar-desc"><strong>1º andar (topo):</strong> o segurança da portaria — fica na entrada, olhando tudo que passa.</div>
+      </div>
+      <div class="seta-desce">▼</div>
+      <div class="andar">
+        <div class="andar-nome">Switch</div>
+        <div class="andar-desc"><strong>2º andar (meio):</strong> o carteiro do prédio — espalha as coisas do 1º andar para o 3º.</div>
+      </div>
+      <div class="seta-desce">▼</div>
+      <div class="andar">
+        <div class="andar-nome">Máquina</div>
+        <div class="andar-desc"><strong>3º andar (embaixo):</strong> quem usa o computador de verdade — o morador do apartamento.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="grade-2">
+      <div class="cartao">
+        <h3><span class="emoji-icone">🧱</span> Dois iguais no mesmo andar?</h3>
+        <p>
+          Sem problema — como no desenho lá em cima: os dois Switches
+          dividem o mesmo andar, um do lado do outro, e cada um continua
+          ligado ao Firewall por uma linha própria.
+        </p>
+      </div>
+      <div class="cartao">
+        <h3><span class="emoji-icone">🧹</span> Apagou uma peça?</h3>
+        <p>
+          O botão <code>×</code> tira o equipamento da lista e chama
+          <span class="badge-fn">renderizaDesenho()</span> de novo — o
+          desenho inteiro é refeito sem essa peça, como se ela nunca tivesse
+          existido.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">§3</span> Todas as funções, uma por uma</h2>
+    <p class="intro-secao">
+      "Função" é só o nome de uma tarefinha que o código sabe fazer sozinho,
+      toda vez que é chamada. Aqui está o time inteiro por trás da tela de
+      Inventário:
+    </p>
+    <div class="lista-funcoes">
+      <div class="funcao">
+        <span class="apelido badge-fn">carregaInventario()</span>
+        <p>Roda uma vez, quando a página abre. Vai na memória do navegador e traz de volta tudo que você já tinha adicionado antes.</p>
+      </div>
+      <div class="funcao">
+        <span class="apelido badge-fn">salvaInventario()</span>
+        <p>Roda toda vez que algo muda. Guarda a lista atualizada na memória do navegador, para não esquecer nada.</p>
+      </div>
+      <div class="funcao">
+        <span class="apelido badge-fn">renderizaLista()</span>
+        <p>Redesenha a listinha do lado esquerdo da tela, com um item para cada equipamento adicionado.</p>
+      </div>
+      <div class="funcao">
+        <span class="apelido badge-fn">renderizaDesenho()</span>
+        <p>A chefe da operação: separa os equipamentos por categoria, decide o andar de cada grupo e chama as duas funções abaixo para desenhar tudo.</p>
+      </div>
+      <div class="funcao">
+        <span class="apelido badge-fn">criaNo()</span>
+        <p>Desenha uma caixinha para um único equipamento — com o ícone, a categoria e o nome.</p>
+      </div>
+      <div class="funcao">
+        <span class="apelido badge-fn">criaLinha()</span>
+        <p>Desenha uma linha entre duas caixinhas de andares vizinhos, mostrando que elas estão conectadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="destaque">
+      <strong>Resumindo:</strong> você nunca desenha nada com a mão. Você só
+      escolhe os equipamentos, e as funções acima — trabalhando em equipe —
+      montam o desenho certo sozinhas, toda vez.
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">§4</span> Palavras novas</h2>
+    <dl class="glossario">
+      <div class="termo"><dt>categoria</dt><dd>o tipo do equipamento: Firewall, Switch ou Máquina.</dd></div>
+      <div class="termo"><dt>fabricante</dt><dd>quem fez aquele equipamento ou sistema — ex.: Cisco, Windows, Linux Ubuntu.</dd></div>
+      <div class="termo"><dt>camada</dt><dd>um andar do desenho — todos os equipamentos da mesma categoria moram na mesma camada.</dd></div>
+      <div class="termo"><dt>nó</dt><dd>cada caixinha do desenho — representa um equipamento.</dd></div>
+    </dl>
+  </section>
+
+  <p class="rodape">MIRA — Mapeamento de Inventário, Riscos e ATT&amp;CK · manual da tela de Inventário</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "equipamento": "maquina",
+  "fabricantes": [
+    { "nome": "N/D", "icone": null, "versoes": [] },
+    { "nome": "Windows XP", "icone": "windows", "versoes": ["Professional x64 Edition", "Starter Edition", "Tablet PC Edition", "Media Center Edition", "Professional", "Home Edition"] },
+    { "nome": "Windows 7", "icone": "windows", "versoes": ["Ultimate", "Enterprise", "Professional", "Home Premium", "Home Basic", "Starter"] },
+    { "nome": "Windows 8", "icone": "windows", "versoes": ["8.1 RT", "8.1 Enterprise", "8.1 Pro", "8.1", "8 RT", "8 Enterprise", "8 Pro", "8 (Core)"] },
+    { "nome": "Windows 10", "icone": "windows", "versoes": ["IoT Enterprise LTSC", "IoT Enterprise", "Enterprise LTSC", "Enterprise", "Education", "Pro for Workstations", "Pro Education", "Pro", "Home"] },
+    { "nome": "Windows 11", "icone": "windows", "versoes": ["SE", "IoT Enterprise LTSC", "IoT Enterprise", "Enterprise LTSC", "Enterprise", "Education", "Pro for Workstations", "Pro Education", "Pro", "Home"] },
+    { "nome": "Linux Ubuntu", "icone": "ubuntu", "versoes": ["26.04 LTS", "25.10", "25.04", "24.10", "24.04 LTS", "23.10", "23.04", "22.10", "22.04 LTS", "21.10", "21.04", "20.10", "20.04 LTS", "19.10", "19.04", "18.10", "18.04 LTS", "17.10", "17.04", "16.10", "16.04 LTS", "15.10", "15.04", "14.10", "14.04 LTS", "13.10", "13.04", "12.10", "12.04 LTS", "11.10", "11.04", "10.10", "10.04 LTS", "9.10", "9.04", "8.10", "8.04 LTS", "7.10", "7.04", "6.10", "6.06 LTS", "5.10", "5.04", "4.10"] },
+    { "nome": "Linux Mint", "icone": "linuxmint", "versoes": ["22.3", "22.2", "22.1", "22", "21.3", "21.2", "21.1", "21", "20.3", "20.2", "20.1", "20", "19.3", "19.2", "19.1", "19", "18.3", "18.2", "18.1", "18", "17.3", "17.2", "17.1", "17", "16", "15", "14", "13", "12", "11", "10", "9", "8", "7", "6", "5", "4", "3.1", "3", "2.2", "2.1", "2", "1"] },
+    { "nome": "Linux Debian", "icone": "debian", "versoes": ["13", "12", "11", "10", "9", "8", "7", "6.0", "5.0", "4.0", "3.1", "3.0", "2.2", "2.1", "2.0", "1.3", "1.2", "1.1"] },
+    { "nome": "Linux RedHat", "icone": "redhat", "versoes": ["10", "9", "8", "7", "6", "5", "4", "3", "2.1"] },
+    { "nome": "macOS", "icone": "apple", "versoes": ["26 Tahoe", "15 Sequoia", "14 Sonoma", "13 Ventura", "12 Monterey", "11 Big Sur", "10.15 Catalina", "10.14 Mojave", "10.13 High Sierra", "10.12 Sierra", "10.11 El Capitan", "10.10 Yosemite", "10.9 Mavericks", "10.8 Mountain Lion", "10.7 Lion", "10.6 Snow Leopard", "10.5 Leopard", "10.4 Tiger", "10.3 Panther", "10.2 Jaguar", "10.1 Puma", "10.0 Cheetah"] }
+  ]
+}

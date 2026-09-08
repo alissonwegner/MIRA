@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MITRE ATT&amp;CK — MIRA</title>
+<meta name="description" content="Entenda o que é o MITRE ATT&CK e como o MIRA usa esse framework para mapear técnicas de ataque a partir do seu inventário.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="faixa">
+    <a class="marca" href="index.html#inicio">
+      <span class="marca-sigla">MIRA</span>
+      <span class="marca-exp">Mapeamento de Inventário, Riscos e ATT&amp;CK</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="index.html#inicio">Início</a>
+      <a href="index.html#como">Como funciona</a>
+      <a href="inventario.html">Inventário</a>
+      <a href="mitre.html" aria-current="page">MITRE ATT&amp;CK</a>
+      <a href="index.html#privacidade">Privacidade</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo" tabindex="-1">
+  <div class="tela">
+    <h1>O que é o MITRE ATT&amp;CK</h1>
+    <p class="lide">
+      ATT&amp;CK (Adversarial Tactics, Techniques and Common Knowledge) é uma
+      base de conhecimento, mantida pela MITRE Corporation, que organiza os
+      comportamentos de ataque observados em incidentes reais. Em vez de
+      listar vulnerabilidades, ela descreve o que um invasor faz depois que
+      já está dentro do ambiente: como se move, como escala privilégios,
+      como permanece sem ser detectado.
+    </p>
+
+    <div class="bloco-explicacao">
+      <h2>Táticas e técnicas</h2>
+      <p>
+        O framework é organizado em duas camadas. As <strong>táticas</strong>
+        são os objetivos do invasor em cada etapa do ataque — por exemplo,
+        obter acesso inicial ou exfiltrar dados. As <strong>técnicas</strong>
+        são os meios usados para alcançar cada objetivo, com exemplos reais
+        documentados por pesquisadores e equipes de resposta a incidentes.
+      </p>
+    </div>
+
+    <div class="bloco-explicacao">
+      <h2>Para que serve</h2>
+      <p>
+        Times de segurança usam o ATT&amp;CK como linguagem comum: para
+        mapear a cobertura de defesas, priorizar detecções, simular ataques
+        (red team) e entender riscos a partir dos equipamentos e softwares
+        realmente presentes na infraestrutura.
+      </p>
+    </div>
+
+    <p class="nota">
+      O MIRA vai cruzar o inventário cadastrado com técnicas do ATT&amp;CK
+      relevantes para cada equipamento. Essa análise ainda está em
+      construção.
+    </p>
+  </div>
+</main>
+
+<footer class="rodape">
+  <p>MIRA é um trabalho acadêmico independente. MITRE ATT&amp;CK é marca registrada da The MITRE Corporation.</p>
+</footer>
+
+</body>
+</html>

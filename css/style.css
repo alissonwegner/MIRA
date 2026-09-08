@@ -109,6 +109,12 @@ main { flex: 1; }
 }
 .botao:hover { background: var(--coberto); }
 
+/* ---------- explicação ---------- */
+
+.bloco-explicacao { margin-top: 2.25rem; max-width: 36em; }
+.bloco-explicacao h2 { font: 600 1.1rem var(--sans); margin: 0 0 .6rem; }
+.bloco-explicacao p { margin: 0; }
+
 /* ---------- inventário ---------- */
 
 .layout-inventario {
@@ -235,22 +241,83 @@ main { flex: 1; }
 .remover-item:hover { color: var(--tinta); }
 
 .painel-desenho {
+  position: relative;
   min-height: 24rem;
+  border: 1px dashed var(--linha);
+  border-radius: 4px;
+  background: var(--papel);
+  overflow: hidden;
+}
+
+.desenho-vazio {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px dashed var(--linha);
-  border-radius: 4px;
-  background: var(--papel);
   color: var(--tinta-mid);
   font-size: .9rem;
   padding: 2rem;
+  margin: 0;
+}
+
+.linhas-desenho {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.linha-conexao {
+  stroke: var(--linha);
+  stroke-width: 1.5;
+}
+
+.linhas-container {
+  position: absolute;
+  inset: 0;
+}
+
+.no-desenho {
+  position: absolute;
+  width: 6rem;
+  transform: translate(-50%, -50%);
+}
+
+.no-caixa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .3rem;
+  padding: .5rem .4rem;
+  background: #fff;
+  border: 1px solid var(--linha);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(25, 30, 36, .08);
+  text-align: center;
+}
+
+.no-categoria {
+  font: 600 .62rem var(--sans);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--coberto);
+}
+
+.no-texto {
+  font-size: .72rem;
+  line-height: 1.25;
+  color: var(--tinta);
+  word-break: break-word;
 }
 
 @media (max-width: 42rem) {
   .layout-inventario { grid-template-columns: 1fr; }
-  .painel-desenho { min-height: 14rem; }
+  .painel-desenho { min-height: 18rem; }
+  .no-desenho { width: 4.75rem; }
+  .no-texto { font-size: .65rem; }
 }
 
 /* ---------- rodapé ---------- */
