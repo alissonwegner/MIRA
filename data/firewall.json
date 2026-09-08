@@ -1,0 +1,11 @@
+{
+  "equipamento": "firewall",
+  "fabricantes": [
+    { "nome": "N/D", "icone": null, "versoes": [] },
+    { "nome": "Sophos", "icone": null, "versoes": [] },
+    { "nome": "Palo Alto", "icone": "paloaltonetworks", "versoes": [] },
+    { "nome": "Fortinet", "icone": "fortinet", "versoes": [] },
+    { "nome": "Check Point", "icone": null, "versoes": [] },
+    { "nome": "pfSense", "icone": "pfsense", "versoes": [] }
+  ]
+}

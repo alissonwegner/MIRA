@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MIRA — Mapeamento de Inventário, Riscos e ATT&amp;CK</title>
-<meta name="description" content="Cruza seu inventário de infraestrutura com CVEs e técnicas MITRE ATT&amp;CK. Roda inteiramente no navegador: nenhum dado é enviado a servidor.">
+<meta name="description" content="Analise as ferramentas e equipamentos da sua infraestrutura em busca de vulnerabilidades. Roda inteiramente no navegador.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,102 +17,60 @@
 
 <header class="topo">
   <div class="faixa">
-    <a class="marca" href="./">
+    <a class="marca" href="#inicio">
       <span class="marca-sigla">MIRA</span>
       <span class="marca-exp">Mapeamento de Inventário, Riscos e ATT&amp;CK</span>
     </a>
     <nav class="nav" aria-label="Principal">
-      <a href="#como">Como funciona</a>
-      <a href="#privacidade">Privacidade</a>
-      <a href="https://github.com/SEU_USUARIO/mira">Repositório</a>
+      <a href="#inicio" data-tela="inicio">Início</a>
+      <a href="#como" data-tela="como">Como funciona</a>
+      <a href="inventario.html">Inventário</a>
+      <a href="#privacidade" data-tela="privacidade">Privacidade</a>
     </nav>
   </div>
 </header>
 
-<main id="conteudo">
+<main id="conteudo" tabindex="-1">
 
-  <section class="hero">
-    <div class="hero-texto">
-      <h1>Seu inventário já descreve<br>como você pode ser atacado.</h1>
-      <p class="lide">
-        Você lista o que roda na sua infraestrutura. O MIRA cruza essa lista
-        com CVEs conhecidos e com as técnicas do MITRE ATT&amp;CK, e devolve
-        duas coisas: o que precisa de correção e o que você não consegue detectar.
-      </p>
-      <p class="exemplo">
-        O AnyDesk instalado numa estação raramente aparece como vulnerabilidade.
-        Aparece como <strong>T1219</strong>, canal de acesso remoto legítimo,
-        usado em praticamente toda operação de ransomware recente. Scanner
-        nenhum vai te contar isso.
-      </p>
-      <div class="acoes">
-        <button class="botao" type="button" id="abrir-analise">Analisar um inventário</button>
-        <a class="link-sec" href="#como">Entender o método</a>
-      </div>
-    </div>
-
-    <figure class="hero-matriz">
-      <div class="matriz" id="matriz" role="img"
-           aria-label="Grade representando técnicas do MITRE ATT&amp;CK: a maioria exposta, uma parte coberta por detecção existente."></div>
-      <figcaption class="legenda">
-        <span class="chave"><i class="amostra amostra-cob"></i>coberta por detecção</span>
-        <span class="chave"><i class="amostra amostra-exp"></i>exposta</span>
-        <span class="chave"><i class="amostra amostra-neu"></i>fora do escopo</span>
-        <span class="contagem" id="contagem" aria-live="polite"></span>
-      </figcaption>
-    </figure>
+  <section class="tela" id="tela-inicio">
+    <h1>Seu inventário já descreve<br>como você pode ser atacado.</h1>
+    <p class="lide">
+      Liste as ferramentas e os equipamentos que rodam na sua infraestrutura.
+      O MIRA cruza essa lista com vulnerabilidades conhecidas e com as técnicas
+      do MITRE ATT&amp;CK para mostrar por onde você pode ser atingido.
+    </p>
+    <p class="acoes">
+      <a class="botao" href="#como">Ver como funciona</a>
+    </p>
   </section>
 
-  <section class="trilhas" id="como">
-    <h2>Duas trilhas, mesmo inventário</h2>
-
-    <div class="trilha">
-      <h3>Da versão para o CVE</h3>
-      <p>
-        Cada item do inventário vira um identificador CPE, que casa com a base
-        de vulnerabilidades. A prioridade não sai do CVSS: sai do catálogo de
-        exploração conhecida da CISA e da probabilidade de exploração do EPSS.
-        Uma falha grave que ninguém explora perde para uma média que já está
-        em uso.
-      </p>
-      <p class="nota">Automática. Depende de haver CPE publicado para o produto.</p>
-    </div>
-
-    <div class="trilha">
-      <h3>Da função para a técnica</h3>
-      <p>
-        Software legítimo também é capacidade ofensiva. Acesso remoto, execução
-        remota, transferência de arquivo, tunelamento. Um catálogo curado liga
-        cada programa às técnicas ATT&amp;CK que ele habilita, e daí ao componente
-        de dado que você precisaria coletar para enxergar o abuso.
-      </p>
-      <p class="nota">Curada à mão. É onde está a contribuição do projeto.</p>
-    </div>
+  <section class="tela" id="tela-como" hidden>
+    <h1>Como funciona</h1>
+    <p class="lide">
+      Adicione as ferramentas e os equipamentos utilizados na sua
+      infraestrutura para analisar possíveis vulnerabilidades.
+    </p>
+    <p class="acoes">
+      <a class="botao" href="inventario.html">Abrir inventário</a>
+    </p>
+    <p class="nota">
+      O desenho da infraestrutura ainda está em construção.
+    </p>
   </section>
 
-  <section class="privacidade" id="privacidade">
-    <h2>O inventário não sai do seu navegador</h2>
-    <p>
-      Uma lista de ativos, versões e programas é a descrição da sua superfície
-      de ataque. Entregar isso a um serviço de terceiros para receber um
-      relatório é uma troca ruim. O MIRA é um site estático: os dados de CVE e
-      ATT&amp;CK são baixados uma vez, o cruzamento acontece no seu computador e
-      nada é transmitido de volta. Não há servidor para vazar.
+  <section class="tela" id="tela-privacidade" hidden>
+    <h1>Privacidade</h1>
+    <p class="lide">
+      Não armazenamos seus dados. Toda a análise acontece dentro do seu
+      navegador, e nenhuma informação que você digitar é enviada ou guardada
+      em qualquer servidor.
     </p>
   </section>
 
 </main>
 
 <footer class="rodape">
-  <p class="proc">
-    Base ATT&amp;CK <span id="v-attack">v19.2</span>,
-    instantâneo de vulnerabilidades de <span id="v-data">—</span>.
-    Conjuntos de dados versionados no repositório para reprodução.
-  </p>
-  <p class="creditos">
-    MIRA é um trabalho acadêmico independente. MITRE ATT&amp;CK é marca registrada
-    da The MITRE Corporation.
-  </p>
+  <p>MIRA é um trabalho acadêmico independente. MITRE ATT&amp;CK é marca registrada da The MITRE Corporation.</p>
 </footer>
 
 <script src="js/main.js"></script>
