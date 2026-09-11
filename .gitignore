@@ -1,0 +1,4 @@
+# Bundles brutos do MITRE ATT&CK (baixados de github.com/mitre/cti).
+# São a fonte do gerar_mitre.py; o que vai para o Git é o data/mitre.json gerado.
+enterprise.json
+ics.json
