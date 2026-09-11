@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teste — MIRA</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Estilo só desta tela de teste. */
+  #busca { font: inherit; padding: .5rem .6rem; width: 100%; max-width: 22rem;
+           border: 1px solid var(--linha); border-radius: 2px; }
+  #resumo { font-size: .85rem; color: var(--tinta-mid); margin: .75rem 0 1.5rem; }
+  .linha { display: grid; grid-template-columns: 7rem 1fr 12rem; gap: 1rem;
+           padding: .4rem 0; border-bottom: 1px solid var(--linha); font-size: .9rem; }
+  .codigo { font-family: monospace; color: var(--coberto); }
+  .taticas { font-size: .8rem; color: var(--tinta-mid); }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="tela">
+    <h1>Teste — consulta ao MITRE ATT&amp;CK</h1>
+    <p class="lide">Tela solta para testar a leitura do data/mitre.json.</p>
+
+    <p><input id="busca" type="search" placeholder="Buscar por nome, código ou tática…"></p>
+    <p id="resumo">carregando…</p>
+
+    <div id="saida"></div>
+  </div>
+</main>
+
+<script src="teste.js"></script>
+</body>
+</html>
